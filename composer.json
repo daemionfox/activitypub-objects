@@ -1,0 +1,26 @@
+{
+  "name": "clickthulu/activitypub-objects",
+  "description": "Library to provide PHP Classes for ActivityPub types",
+  "type": "project",
+  "license": ["GPL-3.0-or-later"],
+  "minimum-stability": "stable",
+  "prefer-stable": true,
+  "require": {
+    "php": ">=8.1",
+    "ext-json": "*",
+    "ext-openssl": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "AP\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^11"
+  }
+}
