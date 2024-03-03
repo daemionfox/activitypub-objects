@@ -10,12 +10,12 @@ abstract class AbstractAPObject implements APObjectInterface
     protected bool $contextSet = false;
 
     /**
-     * @param $key
-     * @param $value
+     * @param string $key
+     * @param mixed $value
      * @return $this
      * @throws APObjectException
      */
-    public function set($key, $value): static
+    public function set(string $key, mixed $value): static
     {
         if (property_exists($this, $key)) {
             if (isset($value['type'])) {
@@ -37,13 +37,26 @@ abstract class AbstractAPObject implements APObjectInterface
         return $this;
     }
 
+    /**
+     * @param string $key
+     * @return mixed
+     * @throws APObjectException
+     */
+    public function get(string $key): mixed
+    {
+        if(property_exists($this, $key)) {
+            return $this->$key;
+        }
+        throw new APObjectException("Property does not exist {$key} for " . get_class($this));
+    }
+
 
     /**
      * @param array $data
-     * @return APObjectInterface
+     * @return AbstractAPObject
      * @throws APObjectException
      */
-    public function load(array $data): APObjectInterface
+    public function load(array $data): static
     {
         foreach ($data as $key => $value) {
             if ($key === 'type') {
