@@ -2,6 +2,7 @@
 
 namespace AP\Type\Core;
 
+use AP\Type\Object\Image;
 use DateTime;
 use Exception;
 
@@ -16,9 +17,9 @@ class APObject extends AbstractAPObject implements APObjectInterface
      * Collection and OrderedCollection.
      */
 
-    protected ?string $_context = "https://www.w3.org/ns/activitystreams";
+    protected array|string|null $_context = "https://www.w3.org/ns/activitystreams";
 
-    protected ?string $attachment;
+    protected array|string|null $attachment;
     protected ?string $attributedTo;
     protected ?string $audience;
     protected ?string $bcc;
@@ -30,8 +31,9 @@ class APObject extends AbstractAPObject implements APObjectInterface
     protected ?string $duration;
     protected ?DateTime $endTime;
     protected ?string $generator;
-    protected ?string $icon;
-    protected ?string $image;
+    protected Image|string|null $icon;
+    protected ?string $id;
+    protected Image|string|null $image;
     protected ?string $inReplyTo;
     protected ?string $location;
     protected ?string $mediaType;

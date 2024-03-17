@@ -5,7 +5,7 @@ namespace AP\Type\Actor;
 use AP\Type\Core\APObjectInterface;
 use AP\Type\Core\APObject;
 
-class Service extends APObject implements APObjectInterface
+class Service extends Actor implements APObjectInterface
 {
     /**
      * https://www.w3.org/ns/activitystreams#Service

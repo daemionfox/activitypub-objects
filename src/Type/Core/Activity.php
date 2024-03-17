@@ -2,11 +2,13 @@
 
 namespace AP\Type\Core;
 
+use AP\Type\Actor\Actor;
+
 class Activity extends APObject implements APObjectInterface
 {
     protected string $type = 'Activity';
-    protected  $actor;
-    protected  $object;
+    protected  Actor|string|null $actor;
+    protected  AbstractAPObject|string|null $object;
     protected string $target;
     protected string $result;
     protected string $origin;
@@ -31,36 +33,36 @@ class Activity extends APObject implements APObjectInterface
     }
 
     /**
-     * @return mixed
+     * @return Actor|string|null
      */
-    public function getActor()
+    public function getActor(): Actor|string|null
     {
         return $this->actor;
     }
 
     /**
-     * @param mixed $actor
+     * @param string|Actor|null $actor
      * @return Activity
      */
-    public function setActor($actor)
+    public function setActor(Actor|string|null $actor): static
     {
         $this->actor = $actor;
         return $this;
     }
 
     /**
-     * @return mixed
+     * @return AbstractAPObject|string|null
      */
-    public function getObject()
+    public function getObject(): AbstractAPObject|string|null
     {
         return $this->object;
     }
 
     /**
-     * @param mixed $object
+     * @param string|AbstractAPObject|null $object
      * @return Activity
      */
-    public function setObject($object)
+    public function setObject(string|AbstractAPObject|null $object): static
     {
         $this->object = $object;
         return $this;
