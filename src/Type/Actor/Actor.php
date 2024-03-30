@@ -12,7 +12,7 @@ abstract class Actor extends APObject implements APObjectInterface
     protected ?PublicKey $publicKey;
 
     /**
-     * @return array|null
+     * @return PublicKey|null
      */
     public function getPublicKey(): ?PublicKey
     {
@@ -20,7 +20,7 @@ abstract class Actor extends APObject implements APObjectInterface
     }
 
     /**
-     * @param array|null $publicKey
+     * @param PublicKey|null $publicKey
      * @return Actor
      */
     public function setPublicKey(?PublicKey $publicKey): Actor
