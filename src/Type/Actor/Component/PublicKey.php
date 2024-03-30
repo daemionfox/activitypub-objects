@@ -8,27 +8,8 @@ use AP\Type\Core\APObjectInterface;
 
 class PublicKey extends APObject implements APObjectInterface
 {
-    protected ?string $id;
     protected ?string $owner;
     protected ?string $publicKeyPem;
-
-    /**
-     * @return string
-     */
-    public function getId(): string
-    {
-        return $this->id;
-    }
-
-    /**
-     * @param string|null $id
-     * @return PublicKey
-     */
-    public function setId(?string $id): static
-    {
-        $this->id = $id;
-        return $this;
-    }
 
     /**
      * @return string|null
