@@ -3,6 +3,7 @@
 namespace AP\Type\Core;
 
 use AP\Exceptions\APObjectException;
+use AP\Type\Actor\Component\Endpoints;
 use AP\Type\Actor\Component\PublicKey;
 use AP\Type\APObjectFactory;
 use DateTime;
@@ -50,6 +51,10 @@ abstract class AbstractAPObject implements APObjectInterface
                 $this->$key = $value;
             } elseif (strtoupper($key) === 'PUBLICKEY') {
                 $publicKey = new PublicKey();
+                $publicKey->load($value);
+                $this->$key = $publicKey;
+            } elseif (strtoupper($key) === 'ENDPOINTS') {
+                $publicKey = new Endpoints();
                 $publicKey->load($value);
                 $this->$key = $publicKey;
             } elseif (is_array($value)) {
