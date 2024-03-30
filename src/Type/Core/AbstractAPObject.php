@@ -3,6 +3,7 @@
 namespace AP\Type\Core;
 
 use AP\Exceptions\APObjectException;
+use AP\Type\Actor\Component\PublicKey;
 use AP\Type\APObjectFactory;
 use DateTime;
 use GuzzleHttp\Client;
@@ -65,6 +66,10 @@ abstract class AbstractAPObject implements APObjectInterface
                 $date = new DateTime();
                 $date->setTimestamp(strtotime($value));
                 $this->$key = $date;
+            } elseif (strtoupper($key) === 'PUBLICKEY') {
+                $publicKey = new PublicKey();
+                $publicKey->load($value);
+                $this->$key = $publicKey;
             } else {
                 $this->$key = $value;
             }
