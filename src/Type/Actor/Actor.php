@@ -2,7 +2,12 @@
 
 namespace AP\Type\Actor;
 
-abstract class Actor extends \AP\Type\Core\APObject implements \AP\Type\Core\APObjectInterface
+use AP\Type\Core\APObject;
+use AP\Type\Core\APObjectInterface;
+
+abstract class Actor extends APObject implements APObjectInterface
 {
+
+    protected ?array $publicKey;
 
 }
