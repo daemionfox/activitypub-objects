@@ -2,18 +2,19 @@
 
 namespace AP\Type\Actor;
 
+use AP\Type\Actor\Component\PublicKey;
 use AP\Type\Core\APObject;
 use AP\Type\Core\APObjectInterface;
 
 abstract class Actor extends APObject implements APObjectInterface
 {
 
-    protected ?array $publicKey;
+    protected ?PublicKey $publicKey;
 
     /**
      * @return array|null
      */
-    public function getPublicKey(): ?array
+    public function getPublicKey(): ?PublicKey
     {
         return $this->publicKey;
     }
@@ -22,7 +23,7 @@ abstract class Actor extends APObject implements APObjectInterface
      * @param array|null $publicKey
      * @return Actor
      */
-    public function setPublicKey(?array $publicKey): Actor
+    public function setPublicKey(?PublicKey $publicKey): Actor
     {
         $this->publicKey = $publicKey;
         return $this;
