@@ -2,6 +2,7 @@
 
 namespace AP\Type\Actor\Component;
 
+use AP\Type\Core\AbstractAPObject;
 use AP\Type\Core\APObject;
 use AP\Type\Core\APObjectInterface;
 
@@ -12,9 +13,9 @@ class PublicKey extends APObject implements APObjectInterface
     protected ?string $publicKeyPem;
 
     /**
-     * @return string|null
+     * @return string
      */
-    public function getId(): ?string
+    public function getId(): string
     {
         return $this->id;
     }
@@ -23,7 +24,7 @@ class PublicKey extends APObject implements APObjectInterface
      * @param string|null $id
      * @return PublicKey
      */
-    public function setId(?string $id): PublicKey
+    public function setId(?string $id): static
     {
         $this->id = $id;
         return $this;
@@ -41,7 +42,7 @@ class PublicKey extends APObject implements APObjectInterface
      * @param string|null $owner
      * @return PublicKey
      */
-    public function setOwner(?string $owner): PublicKey
+    public function setOwner(?string $owner): static
     {
         $this->owner = $owner;
         return $this;
@@ -59,7 +60,7 @@ class PublicKey extends APObject implements APObjectInterface
      * @param string|null $publicKeyPem
      * @return PublicKey
      */
-    public function setPublicKeyPem(?string $publicKeyPem): PublicKey
+    public function setPublicKeyPem(?string $publicKeyPem): static
     {
         $this->publicKeyPem = $publicKeyPem;
         return $this;
