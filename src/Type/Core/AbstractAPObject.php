@@ -48,6 +48,10 @@ abstract class AbstractAPObject implements APObjectInterface
                 $this->$key = APObjectFactory::create($value);
             } elseif (is_a($value, AbstractAPObject::class)) {
                 $this->$key = $value;
+            } elseif (strtoupper($key) === 'PUBLICKEY') {
+                $publicKey = new PublicKey();
+                $publicKey->load($value);
+                $this->$key = $publicKey;
             } elseif (is_array($value)) {
                 $temp = [];
                 foreach ($value as $v) {
@@ -66,10 +70,6 @@ abstract class AbstractAPObject implements APObjectInterface
                 $date = new DateTime();
                 $date->setTimestamp(strtotime($value));
                 $this->$key = $date;
-            } elseif (strtoupper($key) === 'PUBLICKEY') {
-                $publicKey = new PublicKey();
-                $publicKey->load($value);
-                $this->$key = $publicKey;
             } else {
                 $this->$key = $value;
             }
