@@ -3,10 +3,9 @@
 namespace AP\Type\Actor\Component;
 
 use AP\Type\Core\AbstractAPObject;
-use AP\Type\Core\APObject;
 use AP\Type\Core\APObjectInterface;
 
-class PublicKey extends APObject implements APObjectInterface
+class PublicKey extends AbstractAPObject implements APObjectInterface
 {
     protected ?string $owner;
     protected ?string $publicKeyPem;
