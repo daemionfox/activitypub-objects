@@ -46,7 +46,7 @@ class APObject extends AbstractAPObject implements APObjectInterface
     protected ?string $summary;
     protected ?string $summaryMap;
     protected ?string $tag;
-    protected ?string $to;
+    protected string|array|null $to;
     protected string $type = 'Object';
     protected ?string $updated;
     protected ?string $url;
@@ -486,10 +486,10 @@ class APObject extends AbstractAPObject implements APObjectInterface
     }
 
     /**
-     * @param string $to
+     * @param string|array|null $to
      * @return APObject
      */
-    public function setTo(string $to): static
+    public function setTo(string|array|null $to): static
     {
         $this->to = $to;
         return $this;
