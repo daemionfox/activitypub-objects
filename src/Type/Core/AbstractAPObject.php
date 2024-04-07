@@ -172,7 +172,7 @@ abstract class AbstractAPObject implements APObjectInterface
      */
     public function toJSON(): string|bool
     {
-        return json_encode($this->toArray());
+        return json_encode($this->toArray(), JSON_UNESCAPED_SLASHES);
     }
 
     protected function _isURL(string $string): bool
