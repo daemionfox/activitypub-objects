@@ -206,4 +206,24 @@ abstract class AbstractAPObject implements APObjectInterface
         return $this;
     }
 
+    /**
+     * @return bool
+     */
+    public function isContextSet(): bool
+    {
+        return $this->contextSet;
+    }
+
+    /**
+     * @param bool $contextSet
+     * @return AbstractAPObject
+     */
+    public function setContextSet(bool $contextSet): AbstractAPObject
+    {
+        $this->contextSet = $contextSet;
+        return $this;
+    }
+
+
+
 }
