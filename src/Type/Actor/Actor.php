@@ -18,7 +18,8 @@ abstract class Actor extends APObject implements APObjectInterface
     protected ?string $streams;
     protected ?string $preferredUsername;
     protected string|Endpoints|null $endpoints;
-
+    protected bool $manuallyApprovesFollowers = false;
+    protected bool $discoverable = true;
     protected ?PublicKey $publicKey;
 
     /**
@@ -180,6 +181,42 @@ abstract class Actor extends APObject implements APObjectInterface
     public function setEndpoints(Endpoints|string|null $endpoints): Actor
     {
         $this->endpoints = $endpoints;
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isManuallyApprovesFollowers(): bool
+    {
+        return $this->manuallyApprovesFollowers;
+    }
+
+    /**
+     * @param bool $manuallyApprovesFollowers
+     * @return Actor
+     */
+    public function setManuallyApprovesFollowers(bool $manuallyApprovesFollowers): Actor
+    {
+        $this->manuallyApprovesFollowers = $manuallyApprovesFollowers;
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isDiscoverable(): bool
+    {
+        return $this->discoverable;
+    }
+
+    /**
+     * @param bool $discoverable
+     * @return Actor
+     */
+    public function setDiscoverable(bool $discoverable): Actor
+    {
+        $this->discoverable = $discoverable;
         return $this;
     }
 
