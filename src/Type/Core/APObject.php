@@ -19,7 +19,7 @@ class APObject extends AbstractAPObject implements APObjectInterface
 
     protected array|string|null $_context = "https://www.w3.org/ns/activitystreams";
 
-    protected array|string|null $attachment;
+    protected APObjectInterface|array|string|null $attachment;
     protected ?string $attributedTo;
     protected ?string $audience;
     protected ?string $bcc;
@@ -52,18 +52,18 @@ class APObject extends AbstractAPObject implements APObjectInterface
     protected ?string $url;
 
     /**
-     * @return ?string
+     * @return APObjectInterface|array|string|null
      */
-    public function getAttachment(): ?string
+    public function getAttachment(): APObjectInterface|array|string|null
     {
         return $this->attachment;
     }
 
     /**
-     * @param string $attachment
+     * @param APObjectInterface|array|string|null $attachment
      * @return APObject
      */
-    public function setAttachment(string $attachment): static
+    public function setAttachment(APObjectInterface|array|string|null $attachment): static
     {
         $this->attachment = $attachment;
         return $this;
